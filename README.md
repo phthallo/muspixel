@@ -4,7 +4,7 @@
 </div>
 
 ## About
-Muspixel converts an 8x8 neopixel matrix and ESP8266 to an album cover display. Connect it to your [Last.fm](https://www.last.fm/) account and see your scrobbles on the display in real[^1] time!
+Muspixel converts an 8x8 neopixel matrix[^2] and ESP8266 to an album cover display. Connect it to your [Last.fm](https://www.last.fm/) account and see your scrobbles on the display in real[^1] time!
 
 ## Usage and Development
 ### Hardware Setup 
@@ -56,3 +56,4 @@ I use Navidrome too, and wanted both Spotify and Navidrome to be able to work wi
 why not 
 
 [^1]: Subject to API rate limits => right now, it refreshes every 25 seconds.
+[^2]: This should work with larger LED matrix sizes, although I don't have any to test it with. To accomodate for this, set the environment variables `SCREEN_X` and `SCREEN_Y` to adjust the dimensions.

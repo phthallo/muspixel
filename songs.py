@@ -14,7 +14,7 @@ def _rgb_to_hex(rgb: tuple) -> str:
     """
     return "{:02x}{:02x}{:02x}".format(rgb[0], rgb[1], rgb[2])
 
-def get_recent_playing(lastfm_username: str, lastfm_api_key: str) -> JSON:
+def get_recent_playing(lastfm_username: str, lastfm_api_key: str) -> object:
     """Get the most recently played song from the given Last.fm account.
 
     Args:
@@ -27,11 +27,13 @@ def get_recent_playing(lastfm_username: str, lastfm_api_key: str) -> JSON:
     response = requests.get(f"http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user={lastfm_username}&api_key={lastfm_api_key}&format=json&limit=1")
     return response.json()
     
-def parse_album_image(image_url: str) -> list[str]:
-    """Convert the currently playing song's album image into a 8x8 pixel format. 
+def parse_album_image(image_url: str, x: int, y: int) -> list[str]:
+    """Convert the currently playing song's album image into a x*y pixel format. 
 
     Args:
-        image_url (str): URL to an album image provided by the Last.fm api
+        image_url (str): URL to an album image provided by the Last.fm API
+        x (int): Width of the pixel display.
+        y (int): Height of the pixel display
 
     Returns:
         list[str]: List of coloured pixels
@@ -39,10 +41,10 @@ def parse_album_image(image_url: str) -> list[str]:
     post_req = []
     fetch_img = requests.get(image_url)
     img = Image.open(io.BytesIO(fetch_img.content)).convert("RGB")
-    resized = img.resize((8,8), resample=Image.Resampling.BILINEAR)
+    resized = img.resize((x,y), resample=Image.Resampling.BILINEAR)
 
-    for x_pixel in range(8):
-        for y_pixel in range(8):
+    for x_pixel in range(x):
+        for y_pixel in range(y):
             post_req.append(
                 _rgb_to_hex(resized.getpixel((x_pixel, y_pixel))))
     return post_req
