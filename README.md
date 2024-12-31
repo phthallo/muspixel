@@ -1,7 +1,11 @@
 # muspixel
 
-<div align = "center">Stay up to date with your music on an 8x8 NeoPixel matrix. 
+<div align = "center"> 
+<p>A NeoPixel LED-powered live album cover display for your music.</p>
+<img src = "https://github.com/user-attachments/assets/ded114c5-6cf0-462a-9bef-58700c014dd3" alt="The albums This is All Yours by Alt-J and Loose Friends by the Academic shown on an 8x8 LED display."/>
 </div>
+
+
 
 ## About
 Muspixel converts an 8x8 NeoPixel LED matrix[^2] and ESP8266 to an album cover display. Connect it to your [Last.fm](https://www.last.fm/) account and see your scrobbles on the display in real[^1] time!
@@ -15,7 +19,10 @@ Muspixel converts an 8x8 NeoPixel LED matrix[^2] and ESP8266 to an album cover d
 | Male-male connecting wires | 5 |
 | Breadboard | 1 |
 
-1. Set up your wiring and components as shown in the image above.
+<div align = "center" ><img src = "https://github.com/user-attachments/assets/a6115678-ae59-49d6-9ce1-e830b0b8ee7d" width = 800/></div>
+
+
+1. Set up your wiring and components as shown in the image[^3] above (a better image is a work in progress)
 2. Connect the ESP8266 to a laptop and install the [WLED MoonModules binary](https://mm.kno.wled.ge/basics/install-binary/).
 3. Connect and modify it to work on your home Wi-Fi network, as prompted. Note the IP address provided in this step.
 4. Visit the `<ipaddress>/settings/2D` page. If you're using an identical configuration as me, change the LED panel layout settings to replicate the following image. 
@@ -57,3 +64,4 @@ why not
 
 [^1]: Subject to API rate limits => right now, it refreshes every 25 seconds.
 [^2]: This should work with larger LED matrix sizes, although I don't have any to test it with. To accomodate for this, set the environment variables `SCREEN_X` and `SCREEN_Y` to adjust the dimensions.
+[^3]: I swear the breadboard isn't dirty the lighting just makes it look bad 😭
