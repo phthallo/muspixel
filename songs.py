@@ -3,10 +3,18 @@ import requests
 from PIL import Image
 # Get currently playing track from Last.fm. Mainly because it has integration with Navidrome too.
 
-def _rgb_to_hex(rgb: tuple):
+def _rgb_to_hex(rgb: tuple) -> str:
+    """Convert an RGB tuple to hex.
+
+    Args:
+        rgb (tuple): An RGB (red, green, blue) tuple representing a colour.
+
+    Returns:
+        str: The equivalent hex code *without* the beginning #
+    """
     return "{:02x}{:02x}{:02x}".format(rgb[0], rgb[1], rgb[2])
 
-def get_recent_playing(lastfm_username, lastfm_api_key):
+def get_recent_playing(lastfm_username: str, lastfm_api_key: str) -> JSON:
     """Get the most recently played song from the given Last.fm account.
 
     Args:
@@ -19,7 +27,7 @@ def get_recent_playing(lastfm_username, lastfm_api_key):
     response = requests.get(f"http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user={lastfm_username}&api_key={lastfm_api_key}&format=json&limit=1")
     return response.json()
     
-def parse_album_image(image_url):
+def parse_album_image(image_url: str) -> list[str]:
     """Convert the currently playing song's album image into a 8x8 pixel format. 
 
     Args:
@@ -32,7 +40,7 @@ def parse_album_image(image_url):
     fetch_img = requests.get(image_url)
     img = Image.open(io.BytesIO(fetch_img.content)).convert("RGB")
     resized = img.resize((8,8), resample=Image.Resampling.BILINEAR)
-    
+
     for x_pixel in range(8):
         for y_pixel in range(8):
             post_req.append(

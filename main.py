@@ -10,7 +10,7 @@ def main():
     song = get_recent_playing(os.environ["LASTFM_USERNAME"], os.environ["LASTFM_API"])
     payload = {
         "on": True,
-        "bri": 128,
+        "bri": 80,
         "seg": {
             "id": 0,
             "i": parse_album_image(song['recenttracks']['track'][0]['image'][2]['#text'])
