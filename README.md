@@ -1,10 +1,10 @@
 # muspixel
 
-<div align = "center">Stay up to date with your music on an 8x8 neopixel matrix. 
+<div align = "center">Stay up to date with your music on an 8x8 NeoPixel matrix. 
 </div>
 
 ## About
-Muspixel converts an 8x8 neopixel matrix[^2] and ESP8266 to an album cover display. Connect it to your [Last.fm](https://www.last.fm/) account and see your scrobbles on the display in real[^1] time!
+Muspixel converts an 8x8 NeoPixel LED matrix[^2] and ESP8266 to an album cover display. Connect it to your [Last.fm](https://www.last.fm/) account and see your scrobbles on the display in real[^1] time!
 
 ## Usage and Development
 ### Hardware Setup 
