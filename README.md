@@ -27,6 +27,8 @@ Muspixel converts an 8x8 NeoPixel LED matrix[^2] and ESP8266 to an album cover d
 3. Connect and modify it to work on your home Wi-Fi network, as prompted. Note the IP address provided in this step.
 4. Visit the `<ipaddress>/settings/2D` page. If you're using an identical configuration as me, change the LED panel layout settings to replicate the following image. 
 
+<div align = "center"><img src = "https://github.com/user-attachments/assets/1d3cc2d7-086f-4981-981d-bb04f73a1078"/></div>
+
 
 ### Software Setup
 1. Clone the repository
